@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Rail_BD.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet" />
+      <style>
+    .nav-link:hover {
+      text-decoration: underline;
+      text-decoration-color: green;
+    }
+          .nav-link {
+              font-size: 20px;
+          }
+          .navbar {
+ border-bottom: 2px solid black;
+}
+      </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <nav id="navbarshowid" class="navbar navbar-expand-lg navbar-light bg-white" runat="server">
+        <a class="navbar-brand" href="home.aspx">
+            <img src="images/Railway-Logo.png" alt="Logo" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link mr-4" href="home.aspx" id="homelinkid" runat="server">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-4" href="login.aspx" id="loginLink" runat="server">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-4" href="register.aspx" id="registerlink" runat="server">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-4" href="traininfo.aspx">Train Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-4" href="contactus.aspx">Contact Us</a>
+                </li>
+                 <li class="nav-item">
+                   <a class="nav-link mr-4" href="login.aspx?signout=true" id="signoutLink" runat="server">Signout</a>
+
+
+                 </li>
+            </ul>
+        </div>
+    </nav>
+
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="bootstrap/jquery-3.2.1.slim.min.js"></script>
+    <script src="bootstrap/popper.min.js"></script>
+</body>
+</html>
