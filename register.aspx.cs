@@ -23,7 +23,7 @@ namespace Rail_BD
 
         protected void signup_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("button clicked");
+         
             try
             {
                 encryption1();
@@ -39,7 +39,7 @@ namespace Rail_BD
 
                 cmd.ExecuteNonQuery();
 
-                Console.WriteLine("qeuery exec");
+               
 
 
                 con.Close();

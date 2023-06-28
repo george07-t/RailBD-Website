@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -69,6 +75,7 @@
   <ItemGroup>
     <Content Include="Admin.aspx" />
     <Content Include="adminlogin.aspx" />
+    <Content Include="afterpurchase.aspx" />
     <Content Include="Bootstrap\bootstrap.min.css" />
     <Content Include="Bootstrap\bootstrap.min.js" />
     <Content Include="Bootstrap\jquery-3.2.1.slim.min.js" />
@@ -77,6 +84,7 @@
     <Content Include="home.aspx" />
     <Content Include="images\bangladesh-railway.png" />
     <Content Include="images\bkash.png" />
+    <Content Include="images\detail.png" />
     <Content Include="images\instruction-secion-image.png" />
     <Content Include="images\login-page-bg.svg" />
     <Content Include="images\master-card.png" />
@@ -86,16 +94,24 @@
     <Content Include="images\Railway-Logo.png" />
     <Content Include="images\right-arrow.png" />
     <Content Include="images\rocket.svg" />
+    <Content Include="images\pdflogo.png" />
     <Content Include="images\search.svg" />
     <Content Include="images\select.svg" />
+    <Content Include="images\smartphone%281%29.png" />
+    <Content Include="images\ticket.png" />
     <Content Include="images\train-illustration-for-train-1.jpg" />
     <Content Include="images\train-information-illustration.svg" />
+    <Content Include="images\train.png" />
     <Content Include="images\verify-nid-illustration.svg" />
     <Content Include="images\visa.png" />
+    <Content Include="jsfiles\html2canvas.min.js" />
+    <Content Include="jsfiles\pdfmake.min.js" />
     <Content Include="login.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="ticketbookinghistory.aspx" />
     <Content Include="trainbooking.aspx" />
     <Content Include="traininfo.aspx" />
+    <Content Include="Verifyticket.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +128,13 @@
     </Compile>
     <Compile Include="adminlogin.aspx.designer.cs">
       <DependentUpon>adminlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="afterpurchase.aspx.cs">
+      <DependentUpon>afterpurchase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="afterpurchase.aspx.designer.cs">
+      <DependentUpon>afterpurchase.aspx</DependentUpon>
     </Compile>
     <Compile Include="contactus.aspx.cs">
       <DependentUpon>contactus.aspx</DependentUpon>
@@ -149,6 +172,13 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="ticketbookinghistory.aspx.cs">
+      <DependentUpon>ticketbookinghistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ticketbookinghistory.aspx.designer.cs">
+      <DependentUpon>ticketbookinghistory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="trainbooking.aspx.cs">
       <DependentUpon>trainbooking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -162,6 +192,13 @@
     </Compile>
     <Compile Include="traininfo.aspx.designer.cs">
       <DependentUpon>traininfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Verifyticket.aspx.cs">
+      <DependentUpon>Verifyticket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Verifyticket.aspx.designer.cs">
+      <DependentUpon>Verifyticket.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -57,3 +57,6 @@ G:\CSE(3-1)\CSE-3100\Rail-BD\obj\Debug\Rail-BD.csproj.CoreCompileInputs.cache
 G:\CSE(3-1)\CSE-3100\Rail-BD\obj\Debug\Rail-BD.csproj.CopyComplete
 G:\CSE(3-1)\CSE-3100\Rail-BD\obj\Debug\Rail-BD.dll
 G:\CSE(3-1)\CSE-3100\Rail-BD\obj\Debug\Rail-BD.pdb
+G:\CSE(3-1)\CSE-3100\Rail-BD\bin\itextsharp.dll
+G:\CSE(3-1)\CSE-3100\Rail-BD\bin\BouncyCastle.Crypto.dll
+G:\CSE(3-1)\CSE-3100\Rail-BD\bin\itextsharp.xml

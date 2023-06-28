@@ -72,10 +72,16 @@
 
         .mx-auto {
         }
-        .custom-button {
-    background-color: rgba(0, 103, 71, 255);
-}
 
+        .custom-button {
+            background-color: rgba(0, 103, 71, 255);
+        }
+
+        .label {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333333;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
@@ -89,22 +95,50 @@
                 <div class="traininfo">
                     <label for="search">Select Your Preferred Train</label>
                     <asp:TextBox ID="search" CssClass="form-control" runat="server" Required="true" Width="357px"></asp:TextBox>
-
+                    <asp:Label ID="Label1" runat="server" Visible="false" Text="Label"></asp:Label>
 
                 </div>
                 <div class="verifys">
-                    <asp:Button CssClass="m-4 btn btn-block btn-info text-white mx-auto custom-button" ID="srcterain" runat="server" Text="Search Train" Width="224px" />
+                    <asp:Button CssClass="m-4 btn btn-block btn-info text-white mx-auto custom-button" ID="srcterain" runat="server" Text="Search Train" Width="224px" OnClick="srcterain_Click" />
                 </div>
 
             </div>
             <div style="text-align: center; width: 50%; background-color: beige; margin-right: 15px; margin-left: 5px;">
-                <img src="images\train-information-illustration.svg">
-                <br>
-                <p>
-                    Please select your preferred train to see the
+                <div id="notrain" runat="server">
+                    <img src="images\train-information-illustration.svg">
                     <br>
-                    detailed information of your selected train.
-                </p>
+                    <p>
+                        Please select your preferred train to see the
+                    <br>
+                        detailed information of your selected train.
+                    </p>
+                </div>
+                 <asp:Label ID="Label11" runat="server" Text="Label" Visible="false"></asp:Label>
+                <div id="trainhave" runat="server" style="text-align: left; padding:30px;">
+                    <img src="images/train.png" width="50" height="50" />
+                   
+                    <br />
+                    <asp:Label ID="Label8" runat="server" Text="Label" ForeColor="#009933" Font-Bold="true" Font-Size="30px"></asp:Label>
+                    
+                    <br />
+                    <asp:Label ID="Label2" runat="server" Text="Train Name: " CssClass="label" TextAlign="Left"></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                    
+                    <br /><br />
+                    <asp:Label ID="Label4" runat="server" Text="Source: " CssClass="label" TextAlign="Left"></asp:Label>
+                    <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                    <br /><br />
+                    <asp:Label ID="Label6" runat="server" Text="Destination: " CssClass="label" TextAlign="Left"></asp:Label>
+                    <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                    <br /><br />
+                    <asp:Label ID="Label9" runat="server" Text="Time: " CssClass="label" TextAlign="Left"></asp:Label>
+                    <asp:Label ID="Label10" runat="server" Text="Label"></asp:Label>
+                    <br />
+                </div>
+
+
+
+
             </div>
         </div>
 

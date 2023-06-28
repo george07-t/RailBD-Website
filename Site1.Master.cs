@@ -5,33 +5,35 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Security;
 using System.Web.UI.HtmlControls;
 using System.IO;
-
-
-
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
 
 namespace Rail_BD
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
+        string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
            
             if (!IsPostBack)
             {
-                signoutLink.Visible = Session["LoggedIn"] != null && (bool)Session["LoggedIn"];
+                if(Session["LoggedIn"] != null && (bool)Session["LoggedIn"])
+                {
+                    showdropdownloaditem();
+                }
+                dropdownid.Visible = Session["LoggedIn"] != null && (bool)Session["LoggedIn"];
                 loginLink.Visible = Session["LoggedIn"] == null || !(bool)Session["LoggedIn"];
+                verifticketlink.Visible = Session["LoggedIn"] != null && (bool)Session["LoggedIn"];
+                registerlink.Visible = Session["LoggedIn"] == null || !(bool)Session["LoggedIn"];
                 string currentPage = System.IO.Path.GetFileName(Request.Url.AbsolutePath);
                 if (currentPage.Equals("Admin.aspx", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    // You are on the adminpanel.aspx page
-                    // Add your specific code here for the admin panel functionality
                 navbarshowid.Visible = false;
                 }
-               // navbarshowid.Visible= Session["AdminLoggedIn"] == null || !(bool)Session["AdminLoggedIn"];
-                // Check if the sign-out link was clicked
                 if (Request.QueryString["signout"] == "true")
                 {
                     SignOut();
@@ -39,6 +41,37 @@ namespace Rail_BD
 
             }
         }
+
+        private void showdropdownloaditem()
+        {
+            string usernameid = Session["username"].ToString();
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                con.Open();
+
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT [username], [mobile] FROM signinup WHERE username = @username", con);
+                sda.SelectCommand.Parameters.AddWithValue("@username", usernameid);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    usernameLabel.Text = dt.Rows[0]["username"].ToString();
+                    usernameDropdownLabel.Text = dt.Rows[0]["username"].ToString();
+                    mobileDropdownLabel.Text = dt.Rows[0]["mobile"].ToString();
+                }
+
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+            }
+
+        }
+
         protected void SignOut()
         {
             Session.Clear();

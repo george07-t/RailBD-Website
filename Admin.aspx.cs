@@ -19,6 +19,9 @@ namespace Rail_BD
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack) {
+
+            }
 
         }
 
@@ -39,6 +42,7 @@ namespace Rail_BD
 
         protected void addtrainshowid_Click(object sender, EventArgs e)
         {
+           adminhello.Visible = false;
             trainnameid.Visible = true;
             sourceid.Visible = true;
             destinationid.Visible = true;
@@ -106,12 +110,26 @@ namespace Rail_BD
 
         protected void showticketid_Click(object sender, EventArgs e)
         {
+            ticketshow.Visible = true;
+            try { 
+            SqlConnection con2 = new SqlConnection(strcon);
+            con2.Open();
+            SqlDataAdapter sda1 = new SqlDataAdapter("SELECT [ticketnumber],[fromto],[date],[time],[class],[seatno],[fare],[username] FROM seatbooking", con2);
+            DataTable dtbl = new DataTable();
+            sda1.Fill(dtbl);
+            ticketgridview.DataSource = dtbl;
+            ticketgridview.DataBind();
+            con2.Close();
+            }
+            catch (Exception ex) {
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+            }
 
-            
         }
 
         protected void showtrainid_Click(object sender, EventArgs e)
         {
+            trainshow.Visible = true;
             try
             {
                 SqlConnection con1 = new SqlConnection(strcon);

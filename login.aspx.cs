@@ -44,7 +44,8 @@ namespace Rail_BD
                     Response.Write("<script>alert('Login successful');</script>");
                     // Set session variable indicating user is logged in
                     Session["LoggedIn"] = true;
-
+                    Session["username"] =username.Text.Trim();
+                   
                     // Create a cookie to remember login status
                     HttpCookie cookie = new HttpCookie("LoggedIn");
                     cookie.Value = "true";

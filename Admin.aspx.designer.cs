@@ -42,6 +42,15 @@ namespace Rail_BD
         protected global::System.Web.UI.WebControls.Button showticketid;
 
         /// <summary>
+        /// adminhello control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl adminhello;
+
+        /// <summary>
         /// Label0 control.
         /// </summary>
         /// <remarks>
@@ -123,6 +132,15 @@ namespace Rail_BD
         protected global::System.Web.UI.WebControls.Button addtrainbuttonid;
 
         /// <summary>
+        /// trainshow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trainshow;
+
+        /// <summary>
         /// trainGridView control.
         /// </summary>
         /// <remarks>
@@ -130,6 +148,24 @@ namespace Rail_BD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView trainGridView;
+
+        /// <summary>
+        /// ticketshow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ticketshow;
+
+        /// <summary>
+        /// ticketgridview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView ticketgridview;
 
         /// <summary>
         /// signoutbuttonid control.
