@@ -8,6 +8,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.IO;
 
 namespace Rail_BD
 {
@@ -76,6 +80,29 @@ namespace Rail_BD
                     Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
                 }
             }
+        }
+
+        protected void downloadbuttonid_Click(object sender, EventArgs e)
+        {
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "attachment;filename=TicketInvoice.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            Panel1.RenderControl(hw);
+            StringReader sr = new StringReader(sw.ToString());
+            Document pdfDoc = new Document(PageSize.A4, 10, 10, 0, 0);
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            htmlparser.Parse(sr);
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
+            Response.End();
+        }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            /* Verifies that the control is rendered */
         }
     }
 }

@@ -47,7 +47,8 @@
       <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Extras\Download Admit Card as PDF in Asp.Net\Download Admit Card as PDF in Asp.Net\Library Files\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
@@ -104,8 +105,6 @@
     <Content Include="images\train.png" />
     <Content Include="images\verify-nid-illustration.svg" />
     <Content Include="images\visa.png" />
-    <Content Include="jsfiles\html2canvas.min.js" />
-    <Content Include="jsfiles\pdfmake.min.js" />
     <Content Include="login.aspx" />
     <Content Include="register.aspx" />
     <Content Include="ticketbookinghistory.aspx" />

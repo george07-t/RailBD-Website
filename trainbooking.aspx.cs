@@ -29,13 +29,14 @@ namespace Rail_BD
                 seatshowid.Visible = false;
                 string fromStation = Request.QueryString["from"];
                 string toStation = Request.QueryString["to"];
-                 date = Request.QueryString["date"];
+                date = Request.QueryString["date"];
                 classes = Request.QueryString["classes"];
-                Label2.Text = fromStation+"-"+toStation;
+                Label2.Text = fromStation + "-" + toStation;
                 Label6.Text = date;
                 Label8.Text = classes;
                 dateshowid.Text = date;
-                try {
+                try
+                {
                     SqlConnection con = new SqlConnection(strcon);
                     con.Open();
 
@@ -61,193 +62,80 @@ namespace Rail_BD
                     // Close the connection
                     con.Close();
                 }
-                catch(Exception ex) {
+                catch (Exception ex)
+                {
                     Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
                 }
-            
+
             }
         }
 
-        /*private void seatstatus()
-        {string dateid = Request.QueryString["date"];
-
-            string trainseatdateid = trainnamefor + " " + dateid;
-            
-            try {
-                SqlConnection con = new SqlConnection(strcon);
-                con.Open();
-
-                // Query to insert
-                SqlCommand cmd = new SqlCommand("SELECT * FROM seatbooking WHERE trainseatdate = @trainseatdate", con);
-                cmd.Parameters.AddWithValue("@trainseatdate", trainseatdateid);
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = cmd;
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                int rows = ds.Tables[0].Rows.Count;
-                int i = 0;
-                while(i<rows)
-                {
-                    string status;
-                    status = ds.Tables[0].Rows[i]["status"].ToString();
-                    if (status == null)
-                    {
-                        if(i==0 && seatbookno-1 != i)
-                        {
-                            Button1.BackColor = System.Drawing.Color.Gray;
-                        }
-                        if (i == 1 && seatbookno - 1 != i)
-                        {
-                            Button2.BackColor = System.Drawing.Color.Gray;
-                        }
-                        if (i == 2 && seatbookno - 1 != i)
-                        {
-                            Button3.BackColor = System.Drawing.Color.Gray;
-                        }
-                        if (i == 3 && seatbookno - 1 != i)
-                        {
-                            Button4.BackColor = System.Drawing.Color.Gray;
-                        }
-                        if (i == 4 && seatbookno - 1 != i)
-                        {
-                            Button8.BackColor = System.Drawing.Color.Gray;
-                        }
-                        if (i == 5 && seatbookno - 1 != i)
-                        {
-                            Button7.BackColor = System.Drawing.Color.Gray;
-                        }
-                        if (i == 6 && seatbookno - 1 != i)
-                        {
-                            Button5.BackColor = System.Drawing.Color.Gray;
-                        }
-                        if (i == 7 && seatbookno - 1 != i)
-                        {
-                            Button6.BackColor = System.Drawing.Color.Gray;
-                        }
-                        if (i == 8 && seatbookno - 1 != i)
-                        {
-                            Button9.BackColor = System.Drawing.Color.Gray;
-                        }
-                        if (i == 9 && seatbookno - 1 != i)
-                        {
-                            Button10.BackColor = System.Drawing.Color.Gray;
-                        }
-                    }
-                    if (status == "B")
-                    {
-                            if(i== 0)
-                        {
-                            Button1.BackColor = System.Drawing.Color.Red;
-                            Button1.Enabled = false;
-                        }
-                        if (i == 1)
-                        {
-                            Button2.BackColor = System.Drawing.Color.Red;
-                            Button2.Enabled = false;
-                        }
-                        if (i == 2)
-                        {
-                            Button3.BackColor = System.Drawing.Color.Red;
-                            Button3.Enabled = false;
-                        }
-                        if (i == 3)
-                        {
-                            Button4.BackColor = System.Drawing.Color.Red;
-                            Button4.Enabled = false;
-                        }
-                        if (i == 4)
-                        {
-                            Button8.BackColor = System.Drawing.Color.Red;
-                            Button8.Enabled = false;
-                        }
-                        if (i == 5)
-                        {
-                            Button7.BackColor = System.Drawing.Color.Red;
-                            Button7.Enabled = false;
-                        }
-                        if (i == 6)
-                        {
-                            Button5.BackColor = System.Drawing.Color.Red;
-                            Button5.Enabled = false;
-                        }
-                        if (i == 7)
-                        {
-                            Button6.BackColor = System.Drawing.Color.Red;
-                            Button6.Enabled = false;
-                        }
-                        if (i == 8)
-                        {
-                            Button9.BackColor = System.Drawing.Color.Red;
-                            Button9.Enabled = false;
-                        }
-                        if (i == 9)
-                        {
-                            Button10.BackColor = System.Drawing.Color.Red;
-                            Button10.Enabled = false;
-                        }
-                    }
-                    i=i+1;
-
-                }
-
-            }
-            catch (Exception ex) { Response.Write("<script>alert('Error2: " + ex.Message + "');</script>"); }
-        }*/
 
         protected void confirmbuttonid_Click(object sender, EventArgs e)
         {
-            try {
-                
+            try
+            {
+
                 string dateid = Request.QueryString["date"];
-                string trainseatdateid = trainnamefor + dateid+ classlabelid.Text;
+                string trainseatdateid = trainnamefor + dateid + classlabelid.Text + seatbookno;
                 string username = Session["username"].ToString();
                 int fares = 500;
                 string timesshow = timeshowid.Text;
                 string classshow = classlabelid.Text;
-                string fromtoshow= fromtoid.Text;
+                string fromtoshow = fromtoid.Text;
                 Random random = new Random();
                 int ticketsNumber = random.Next(10000, 100000);
-                SqlConnection con = new SqlConnection(strcon);
-                con.Open();
-
-
-                // Query to insert
-                SqlCommand cmd = new SqlCommand("INSERT INTO seatbooking([username],[trainseatdate],[seatno],[searstatus],[trainname],[fromto],[time],[date],[class],[fare],[ticketnumber]) VALUES(@username,@trainseatdate,@seatno,@searstatus,@trainname,@fromto,@time,@date,@class,@fare,@ticketnumber)", con);
-                cmd.Parameters.AddWithValue("@trainseatdate", trainseatdateid);
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@seatno", seatbookno);
-                cmd.Parameters.AddWithValue("@searstatus", "B");
-                cmd.Parameters.AddWithValue("@trainname", trainnamefor);
-                cmd.Parameters.AddWithValue("@fromto", fromtoshow);
-                cmd.Parameters.AddWithValue("@time", timesshow);
-                cmd.Parameters.AddWithValue("@date", dateid);
-                cmd.Parameters.AddWithValue("@class", classshow);
-                cmd.Parameters.AddWithValue("@fare", fares);
-                cmd.Parameters.AddWithValue("@ticketnumber", ticketsNumber);
-                int rowsAffected = cmd.ExecuteNonQuery();
-                con.Close();
-
-                if (rowsAffected > 0)
+                DateTime currentTime = DateTime.Now;
+                DateTime selectedTime = DateTime.Parse(timesshow);
+                if (selectedTime < currentTime)
                 {
-                    Response.Write("<script>alert('Seat booked');</script>");
-                    string url = "afterpurchase.aspx";
-                    url += "?username=" + HttpUtility.UrlEncode(username);
-                    url += "&seatbookno=" + HttpUtility.UrlEncode(seatbookno.ToString());
-                    url += "&trainnamefor=" + HttpUtility.UrlEncode(trainnamefor);
-                    url += "&fromtoshow=" + HttpUtility.UrlEncode(fromtoshow);
-                    url += "&timesshow=" + HttpUtility.UrlEncode(timesshow);
-                    url += "&dateid=" + HttpUtility.UrlEncode(dateid);
-                    url += "&classshow=" + HttpUtility.UrlEncode(classshow);
-                    url += "&fares=" + HttpUtility.UrlEncode(fares.ToString());
-                    url += "&ticketsNumber=" + HttpUtility.UrlEncode(ticketsNumber.ToString());
-
-                    Response.Redirect(url);
+                    Response.Write("Train has already passed today!");
                 }
                 else
                 {
-                    Response.Write("<script>alert('Failed to book the seat');</script>");
+                    SqlConnection con = new SqlConnection(strcon);
+
+                    con.Open();
+
+
+                    // Query to insert
+                    SqlCommand cmd = new SqlCommand("INSERT INTO seatbooking([username],[trainseatdate],[seatno],[searstatus],[trainname],[fromto],[time],[date],[class],[fare],[ticketnumber]) VALUES(@username,@trainseatdate,@seatno,@searstatus,@trainname,@fromto,@time,@date,@class,@fare,@ticketnumber)", con);
+                    cmd.Parameters.AddWithValue("@trainseatdate", trainseatdateid);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@seatno", seatbookno);
+                    cmd.Parameters.AddWithValue("@searstatus", "B");
+                    cmd.Parameters.AddWithValue("@trainname", trainnamefor);
+                    cmd.Parameters.AddWithValue("@fromto", fromtoshow);
+                    cmd.Parameters.AddWithValue("@time", timesshow);
+                    cmd.Parameters.AddWithValue("@date", dateid);
+                    cmd.Parameters.AddWithValue("@class", classshow);
+                    cmd.Parameters.AddWithValue("@fare", fares);
+                    cmd.Parameters.AddWithValue("@ticketnumber", ticketsNumber);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    if (rowsAffected > 0)
+                    {
+                        Response.Write("<script>alert('Seat booked');</script>");
+                        string url = "afterpurchase.aspx";
+                        url += "?username=" + HttpUtility.UrlEncode(username);
+                        url += "&seatbookno=" + HttpUtility.UrlEncode(seatbookno.ToString());
+                        url += "&trainnamefor=" + HttpUtility.UrlEncode(trainnamefor);
+                        url += "&fromtoshow=" + HttpUtility.UrlEncode(fromtoshow);
+                        url += "&timesshow=" + HttpUtility.UrlEncode(timesshow);
+                        url += "&dateid=" + HttpUtility.UrlEncode(dateid);
+                        url += "&classshow=" + HttpUtility.UrlEncode(classshow);
+                        url += "&fares=" + HttpUtility.UrlEncode(fares.ToString());
+                        url += "&ticketsNumber=" + HttpUtility.UrlEncode(ticketsNumber.ToString());
+
+                        Response.Redirect(url);
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Failed to book the seat');</script>");
+                    }
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -255,7 +143,7 @@ namespace Rail_BD
             }
         }
 
-        protected void Button11_Click(object sender, EventArgs e)
+        protected void Buttons11_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             if (button.BackColor == System.Drawing.Color.Green)
@@ -273,7 +161,7 @@ namespace Rail_BD
             UpdatePanel1.Update(); // Update the contents inside the UpdatePanel
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Buttons12_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             if (button.BackColor == System.Drawing.Color.Green)
@@ -291,7 +179,7 @@ namespace Rail_BD
             UpdatePanel2.Update();
         }
 
-        protected void Button12_Click(object sender, EventArgs e)
+        protected void Buttons13_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             if (button.BackColor == System.Drawing.Color.Green)
@@ -309,7 +197,7 @@ namespace Rail_BD
             UpdatePanel3.Update();
         }
 
-        protected void Button13_Click(object sender, EventArgs e)
+        protected void Buttons14_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             if (button.BackColor == System.Drawing.Color.Green)
@@ -327,7 +215,7 @@ namespace Rail_BD
             UpdatePanel4.Update();
         }
 
-        protected void Button14_Click(object sender, EventArgs e)
+        protected void Buttons15_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             if (button.BackColor == System.Drawing.Color.Green)
@@ -345,7 +233,7 @@ namespace Rail_BD
             UpdatePanel5.Update();
         }
 
-        protected void Button15_Click(object sender, EventArgs e)
+        protected void Buttons16_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             if (button.BackColor == System.Drawing.Color.Green)
@@ -363,7 +251,7 @@ namespace Rail_BD
             UpdatePanel6.Update();
         }
 
-        protected void Button16_Click(object sender, EventArgs e)
+        protected void Buttons17_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             if (button.BackColor == System.Drawing.Color.Green)
@@ -381,7 +269,7 @@ namespace Rail_BD
             UpdatePanel7.Update();
         }
 
-        protected void Button17_Click(object sender, EventArgs e)
+        protected void Buttons18_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             if (button.BackColor == System.Drawing.Color.Green)
@@ -399,7 +287,7 @@ namespace Rail_BD
             UpdatePanel8.Update();
         }
 
-        protected void Button18_Click(object sender, EventArgs e)
+        protected void Buttons19_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             if (button.BackColor == System.Drawing.Color.Green)
@@ -417,7 +305,7 @@ namespace Rail_BD
             UpdatePanel9.Update();
         }
 
-        protected void Button19_Click(object sender, EventArgs e)
+        protected void Buttons20_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             if (button.BackColor == System.Drawing.Color.Green)
@@ -439,7 +327,7 @@ namespace Rail_BD
         {
             if (e.CommandName == "book")
             {
-                
+
                 seatbookingid.Visible = true;
                 seatshowid.Visible = true;
                 int rowIndex = Convert.ToInt32(e.CommandArgument);
@@ -450,19 +338,64 @@ namespace Rail_BD
                 string source = row.Cells[1].Text; // Assuming source is the second column
                 string destination = row.Cells[2].Text; // Assuming destination is the third column
                 string time = row.Cells[3].Text; // Assuming time is the fourth column
-                trainnamefor=trainName;
+                trainnamefor = trainName;
                 // Use the retrieved data as needed
                 trainnameid.Text = trainName;
                 fromtoid.Text = source + "-" + destination;
                 timeshowid.Text = time;
-                dateshowid.Visible=true;
+                dateshowid.Visible = true;
                 dateshowid.Text = Request.QueryString["date"]; ;
-                classlabelid.Text = Request.QueryString["classes"]; ;
-            
+                classlabelid.Text = Request.QueryString["classes"];
+                string trainseatdateclass = trainName + dateshowid.Text + classlabelid.Text;
+                string query = "SELECT seatno FROM seatbooking WHERE trainname = @trainname AND date=@date AND class=@class ";
+                using (SqlConnection connection = new SqlConnection(strcon))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@trainname", trainName);
+                        command.Parameters.AddWithValue("@date", dateshowid.Text);
+                        command.Parameters.AddWithValue("@class", classlabelid.Text);
+                        connection.Open();
+
+                        SqlDataReader reader = command.ExecuteReader();
+                        string bookedSeats = "";
+
+                        while (reader.Read())
+                        {
+                            int seatnum = (int)reader["seatno"];
+                            checkseat(seatnum);
+                            bookedSeats += reader["seatno"].ToString() + ", ";
+                        }
+
+                        reader.Close();
+
+                        if (!string.IsNullOrEmpty(bookedSeats))
+                        {
+                            bookedSeats = bookedSeats.TrimEnd(',', ' '); // Remove the trailing comma and space
+                            bookedticket.Text = bookedSeats;
+                        }
+                        else
+                        {
+                            bookedticket.Text = "No seats booked.";
+                        }
+                    }
+                }
+
             }
         }
 
+        private void checkseat(int seatnum)
+        {
+            string buttonId = "Buttons" + (seatnum+10);
+          
+            Button seatButton = (Button)FindControl(buttonId);
 
+            if (seatButton != null)
+            {
+                seatButton.Enabled = false;
+                seatButton.BackColor = System.Drawing.Color.Red;
 
+            }
+        }
     }
 }

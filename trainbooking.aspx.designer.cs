@@ -150,13 +150,13 @@ namespace Rail_BD
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
-        /// Button11 control.
+        /// Buttons11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button11;
+        protected global::System.Web.UI.WebControls.Button Buttons11;
 
         /// <summary>
         /// UpdatePanel2 control.
@@ -168,13 +168,13 @@ namespace Rail_BD
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
 
         /// <summary>
-        /// Button1 control.
+        /// Buttons12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button Buttons12;
 
         /// <summary>
         /// UpdatePanel3 control.
@@ -186,13 +186,13 @@ namespace Rail_BD
         protected global::System.Web.UI.UpdatePanel UpdatePanel3;
 
         /// <summary>
-        /// Button12 control.
+        /// Buttons13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button12;
+        protected global::System.Web.UI.WebControls.Button Buttons13;
 
         /// <summary>
         /// UpdatePanel4 control.
@@ -204,13 +204,13 @@ namespace Rail_BD
         protected global::System.Web.UI.UpdatePanel UpdatePanel4;
 
         /// <summary>
-        /// Button13 control.
+        /// Buttons14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button13;
+        protected global::System.Web.UI.WebControls.Button Buttons14;
 
         /// <summary>
         /// UpdatePanel5 control.
@@ -222,13 +222,13 @@ namespace Rail_BD
         protected global::System.Web.UI.UpdatePanel UpdatePanel5;
 
         /// <summary>
-        /// Button14 control.
+        /// Buttons15 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button14;
+        protected global::System.Web.UI.WebControls.Button Buttons15;
 
         /// <summary>
         /// UpdatePanel6 control.
@@ -240,13 +240,13 @@ namespace Rail_BD
         protected global::System.Web.UI.UpdatePanel UpdatePanel6;
 
         /// <summary>
-        /// Button15 control.
+        /// Buttons16 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button15;
+        protected global::System.Web.UI.WebControls.Button Buttons16;
 
         /// <summary>
         /// UpdatePanel7 control.
@@ -258,13 +258,13 @@ namespace Rail_BD
         protected global::System.Web.UI.UpdatePanel UpdatePanel7;
 
         /// <summary>
-        /// Button16 control.
+        /// Buttons17 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button16;
+        protected global::System.Web.UI.WebControls.Button Buttons17;
 
         /// <summary>
         /// UpdatePanel8 control.
@@ -276,13 +276,13 @@ namespace Rail_BD
         protected global::System.Web.UI.UpdatePanel UpdatePanel8;
 
         /// <summary>
-        /// Button17 control.
+        /// Buttons18 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button17;
+        protected global::System.Web.UI.WebControls.Button Buttons18;
 
         /// <summary>
         /// UpdatePanel9 control.
@@ -294,13 +294,13 @@ namespace Rail_BD
         protected global::System.Web.UI.UpdatePanel UpdatePanel9;
 
         /// <summary>
-        /// Button18 control.
+        /// Buttons19 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button18;
+        protected global::System.Web.UI.WebControls.Button Buttons19;
 
         /// <summary>
         /// UpdatePanel10 control.
@@ -312,13 +312,13 @@ namespace Rail_BD
         protected global::System.Web.UI.UpdatePanel UpdatePanel10;
 
         /// <summary>
-        /// Button19 control.
+        /// Buttons20 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button19;
+        protected global::System.Web.UI.WebControls.Button Buttons20;
 
         /// <summary>
         /// showseatid control.

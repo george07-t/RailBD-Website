@@ -1,7 +1,79 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ticketbookinghistory.aspx.cs" Inherits="Rail_BD.ticketbookinghistory" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ticketbookinghistory.aspx.cs" Inherits="Rail_BD.ticketbookinghistory" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
+                .invoice-panel {
+            background-color: #FFCC80; /* Light Orange */
+            padding: 20px;
+            width: 40%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid black;
+        }
+
+        .invoice-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+        }
+
+        .company-name {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .customer-info,
+        .ticket-info {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            padding: 10px 10px 10px 20px;
+            border: 2px solid black;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .info-label {
+            flex: 0 0 150px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .info-value {
+            flex: 1;
+            color: #333;
+        }
+
+        .invoice-details {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #81C784; /* Light Green */
+            color: #fff;
+        }
+
+            .invoice-details:before {
+                content: "";
+                display: table;
+            }
+
+            .invoice-details:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .invoice-details:after {
+                clear: both;
+            }
                 .nidverify {
             padding-top: 50px;
             margin-left: 20px;
@@ -43,6 +115,7 @@
         <asp:GridView ID="tickethistory" CssClass="table" runat="server" AutoGenerateColumns="False" OnRowCommand="tickethistory_RowCommand" CellPadding="3" GridLines="None" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellSpacing="1">
             <Columns>
                 <asp:BoundField DataField="ticketnumber" HeaderText="Ticket Number" />
+                <asp:BoundField DataField="trainname" HeaderText="Train Name" />
                 <asp:BoundField DataField="fromto" HeaderText="From-To" />
                 <asp:BoundField DataField="date" HeaderText="Date" />
                 <asp:BoundField DataField="time" HeaderText="Time" />
@@ -66,6 +139,63 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#33276A" />
         </asp:GridView>
+    </div>
+     <div style="display: flex; justify-content: center;">
+        <asp:Panel ID="invoicePanel" runat="server" CssClass="invoice-panel" BackColor="#E7CEB8">
+            <div class="invoice-header">
+
+                <h1 class="company-name">Bangladesh Railways</h1>
+                <hr style="width: 350px; height: 3px; background-color: black; text-align: right;" />
+            </div>
+            <div class="invoice-details">
+                <div class="customer-info">
+                    <div class="info-row">
+                        <span class="info-label">Username:</span>
+                        <asp:Label ID="usernameLabel" runat="server" CssClass="info-value"></asp:Label>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Mobile Number:</span>
+                        <asp:Label ID="mobileLabel" runat="server" CssClass="info-value" Text="01828113846"></asp:Label>
+                    </div>
+                </div>
+                <div class="ticket-info">
+                    <div class="info-row">
+                        <span class="info-label">Ticket Number:</span>
+                        <asp:Label ID="ticketNumberLabel" runat="server" CssClass="info-value"></asp:Label>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Train Name:</span>
+                        <asp:Label ID="trainNameLabel" runat="server" CssClass="info-value"></asp:Label>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Journey Date:</span>
+                        <asp:Label ID="journeyDateLabel" runat="server" CssClass="info-value"></asp:Label>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">From-To:</span>
+                        <asp:Label ID="fromtoLabel" runat="server" CssClass="info-value"></asp:Label>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Class:</span>
+                        <asp:Label ID="classLabel" runat="server" CssClass="info-value"></asp:Label>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Seat No:</span>
+                        <asp:Label ID="seatNoLabel" runat="server" CssClass="info-value"></asp:Label>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Time:</span>
+                        <asp:Label ID="timeLabel" runat="server" CssClass="info-value"></asp:Label>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Fare:</span>
+                        <asp:Label ID="fareLabel" runat="server" CssClass="info-value"></asp:Label>
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+
+
     </div>
     <footer>
         <div class="copy-right">

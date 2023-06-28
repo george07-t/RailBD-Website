@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Verifyticket.aspx.cs" Inherits="Rail_BD.Verifyticket" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Verifyticket.aspx.cs" Inherits="Rail_BD.Verifyticket" EnableEventValidation="false" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <style>
+    <style>
         .contacts {
             text-align: center;
         }
@@ -81,6 +82,10 @@
             font-size: 16px;
             color: #333333;
         }
+        .panelview{
+            padding:20px;
+            margin-bottom:10px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
@@ -112,40 +117,42 @@
                         detailed information of your ticket and download them.
                     </p>
                 </div>
-                 <asp:Label ID="Label11" runat="server" Text="Label" Visible="false"></asp:Label>
-                <div id="trainhave" runat="server" style="text-align: left; padding:30px;">
+                <asp:Label ID="Label11" runat="server" Text="Label" Visible="false"></asp:Label>
+                <div id="trainhave" runat="server" style="text-align: left; padding: 30px;">
                     <img src="images/ticket.png" width="50" height="50" />
-                   
+
                     <br />
                     <asp:Label ID="Label21" runat="server" Text="Label" ForeColor="#009933" Font-Bold="true" Font-Size="30px"></asp:Label>
-                    
+
                     <br />
-                    <asp:Label ID="Label2" runat="server" Text="Ticket Number: " CssClass="label" TextAlign="Left"></asp:Label>
-                    <asp:Label ID="Label22" runat="server" Text="Label"></asp:Label>
-                   
-                    <br />
-                    <asp:Label ID="Label16" runat="server" Text="Train Name: " CssClass="label" TextAlign="Left"></asp:Label>
-                    <asp:Label ID="Label23" runat="server" Text="Label"></asp:Label>
-                    <br />
-                    <asp:Label ID="Label4" runat="server" Text="Source-Destination: " CssClass="label" TextAlign="Left"></asp:Label>
-                    <asp:Label ID="Label24" runat="server" Text="Label"></asp:Label>
-                    <br />
-                    <asp:Label ID="Label6" runat="server" Text="Date: " CssClass="label" TextAlign="Left"></asp:Label>
-                    <asp:Label ID="Label25" runat="server" Text="Label"></asp:Label>
-                    <br />
-                    <asp:Label ID="Label9" runat="server" Text="Time: " CssClass="label" TextAlign="Left"></asp:Label>
-                    <asp:Label ID="Label26" runat="server" Text="Label"></asp:Label>
-                    <br />
-                     <asp:Label ID="Label14" runat="server" Text="Class: " CssClass="label" TextAlign="Left"></asp:Label>
-                    <asp:Label ID="Label27" runat="server" Text="Label"></asp:Label>
-                    <br />
-                     <asp:Label ID="Label12" runat="server" Text="Seat Number: " CssClass="label" TextAlign="Left"></asp:Label>
-                    <asp:Label ID="Label28" runat="server" Text="Label"></asp:Label>
-                    <br />
-                     <asp:Label ID="Label3" runat="server" Text="Fare: " CssClass="label" TextAlign="Left"></asp:Label>
-                    <asp:Label ID="Label29" runat="server" Text="500 BDT"></asp:Label>
-                    <br />
-                    <asp:Button CssClass="m-4 btn btn-block btn-info text-white mx-auto custom-button" Width="180px" ID="downloadbuttonid" runat="server" Text="Download" />
+                    <asp:Panel ID="Panel1" runat="server" CssClass="panelview" Height="361px">
+                        <h3><strong>Ticket Invoice</strong></h3>
+                        <asp:Label ID="Label2" runat="server" Text="Ticket Number: " CssClass="label" TextAlign="Left"></asp:Label>
+                        <asp:Label ID="Label22" runat="server" Text="Label"></asp:Label>
+                        <br />
+                        <asp:Label ID="Label16" runat="server" Text="Train Name: " CssClass="label" TextAlign="Left"></asp:Label>
+                        <asp:Label ID="Label23" runat="server" Text="Label"></asp:Label>
+                        <br />
+                        <asp:Label ID="Label4" runat="server" Text="Source-Destination: " CssClass="label" TextAlign="Left"></asp:Label>
+                        <asp:Label ID="Label24" runat="server" Text="Label"></asp:Label>
+                        <br />
+                        <asp:Label ID="Label6" runat="server" Text="Date: " CssClass="label" TextAlign="Left"></asp:Label>
+                        <asp:Label ID="Label25" runat="server" Text="Label"></asp:Label>
+                        <br />
+                        <asp:Label ID="Label9" runat="server" Text="Time: " CssClass="label" TextAlign="Left"></asp:Label>
+                        <asp:Label ID="Label26" runat="server" Text="Label"></asp:Label>
+                        <br />
+                        <asp:Label ID="Label14" runat="server" Text="Class: " CssClass="label" TextAlign="Left"></asp:Label>
+                        <asp:Label ID="Label27" runat="server" Text="Label"></asp:Label>
+                        <br />
+                        <asp:Label ID="Label12" runat="server" Text="Seat Number: " CssClass="label" TextAlign="Left"></asp:Label>
+                        <asp:Label ID="Label28" runat="server" Text="Label"></asp:Label>
+                        <br />
+                        <asp:Label ID="Label3" runat="server" Text="Fare: " CssClass="label" TextAlign="Left"></asp:Label>
+                        <asp:Label ID="Label29" runat="server" Text="500 BDT"></asp:Label>
+                           <asp:Button CssClass="m-4 btn btn-block btn-info text-white mx-auto custom-button" Width="180px" ID="downloadbuttonid" runat="server" Text="Download" OnClick="downloadbuttonid_Click" />
+                
+                    </asp:Panel>
                 </div>
 
 
@@ -153,7 +160,8 @@
 
             </div>
         </div>
-
+        <br />
+        <<br />
     </section>
     <footer>
         <div class="copy-right">

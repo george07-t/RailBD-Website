@@ -2,24 +2,23 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
+        .nidverify h1 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-            .nidverify h1 {
-                font-family: Arial, Helvetica, sans-serif;
-               
-            }
         .show {
             background-color: burlywood;
             color: black;
             padding: 20px;
-            padding-left:40px;
+            padding-left: 40px;
         }
 
             .show label {
                 tab-size: 20px;
                 margin-bottom: 10px;
                 font-weight: bold;
-            font-size: 16px;
-            color: #333333;
+                font-size: 16px;
+                color: #333333;
             }
 
 
@@ -116,9 +115,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
     <div class="show">
-         <section class="nidverify">
-        <h1>User Ticket Booking History</h1>
-    </section>
+        <section class="nidverify">
+            <h1>User Ticket Booking History</h1>
+        </section>
         <hr style="width: 500px; height: 3px; background-color: black; position: relative; border: none; margin: 0;">
 
         <div style="position: absolute; top: 0; right: 0;">
@@ -189,148 +188,152 @@
                 <hr style="width: 200px; height: 3px; background-color: black; border: none; margin: 0;">
             </div>
             <br />
-            <div style="display: flex; justify-content: center;">
-                <asp:Label ID="Labelno" CssClass="lable3show text-center" runat="server" Text="NB: Only one seat can be booked at a time!"></asp:Label>
-                <br />
-                 <span class="info-label">Booked Tckets:</span>
-                <asp:Label ID="bookedticket" CssClass="lable3show text-center" runat="server" Text="asd"></asp:Label>
-                <br />
-                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                <table class="auto-style2" id="showseatstableid" runat="server">
-                    <tr>
-                        <td class="auto-style1">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div> 
+                    <asp:Label ID="Labelno" CssClass="lable3show text-center" runat="server" Text="NB: Only one seat can be booked at a time!"></asp:Label>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <span class="info-label">Booked Tickets:</span>
+                    <asp:Label ID="bookedticket" CssClass="lable3show text-center" runat="server" Text="asd"></asp:Label>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <table class="auto-style2" id="showseatstableid" runat="server">
+                        <tr>
+                            <td class="auto-style1">
 
 
 
-                            <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <asp:Button ID="Button11" runat="server" BackColor="Gray" Text="1" OnClick="Button11_Click" Height="50px" Width="50px" />
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="Button11" EventName="Click" />
-                                </Triggers>
-                            </asp:UpdatePanel>
+                                <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:Button ID="Buttons11" runat="server" BackColor="Gray" Text="1" OnClick="Buttons11_Click" Height="50px" Width="50px" />
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="Buttons11" EventName="Click" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
 
-                        </td>
-                        <td class="auto-style1">
-
-
-                            <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <asp:Button ID="Button1" runat="server" BackColor="Gray" Text="2" OnClick="Button1_Click" Height="50px" Width="50px" />
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
-                                </Triggers>
-                            </asp:UpdatePanel>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style1">
+                            </td>
+                            <td class="auto-style1">
 
 
-                            <asp:UpdatePanel ID="UpdatePanel3" runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <asp:Button ID="Button12" runat="server" BackColor="Gray" Text="3" OnClick="Button12_Click" Height="50px" Width="50px" />
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="Button12" EventName="Click" />
-                                </Triggers>
-                            </asp:UpdatePanel>
-
-                        </td>
-                        <td class="auto-style1">
-
-
-                            <asp:UpdatePanel ID="UpdatePanel4" runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <asp:Button ID="Button13" runat="server" BackColor="Gray" Text="4" OnClick="Button13_Click" Height="50px" Width="50px" />
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="Button13" EventName="Click" />
-                                </Triggers>
-                            </asp:UpdatePanel>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style1">
+                                <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:Button ID="Buttons12" runat="server" BackColor="Gray" Text="2" OnClick="Buttons12_Click" Height="50px" Width="50px" />
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="Buttons12" EventName="Click" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style1">
 
 
-                            <asp:UpdatePanel ID="UpdatePanel5" runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <asp:Button ID="Button14" runat="server" BackColor="Gray" Text="5" OnClick="Button14_Click" Height="50px" Width="50px" />
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="Button14" EventName="Click" />
-                                </Triggers>
-                            </asp:UpdatePanel>
-                        </td>
-                        <td class="auto-style1">
+                                <asp:UpdatePanel ID="UpdatePanel3" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:Button ID="Buttons13" runat="server" BackColor="Gray" Text="3" OnClick="Buttons13_Click" Height="50px" Width="50px" />
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="Buttons13" EventName="Click" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+
+                            </td>
+                            <td class="auto-style1">
 
 
-                            <asp:UpdatePanel ID="UpdatePanel6" runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <asp:Button ID="Button15" runat="server" BackColor="Gray" Text="6" OnClick="Button15_Click" Height="50px" Width="50px" />
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="Button15" EventName="Click" />
-                                </Triggers>
-                            </asp:UpdatePanel>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style1">
+                                <asp:UpdatePanel ID="UpdatePanel4" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:Button ID="Buttons14" runat="server" BackColor="Gray" Text="4" OnClick="Buttons14_Click" Height="50px" Width="50px" />
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="Buttons14" EventName="Click" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style1">
 
 
-                            <asp:UpdatePanel ID="UpdatePanel7" runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <asp:Button ID="Button16" runat="server" BackColor="Gray" Text="7" OnClick="Button16_Click" Height="50px" Width="50px" />
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="Button16" EventName="Click" />
-                                </Triggers>
-                            </asp:UpdatePanel>
-                        </td>
-                        <td class="auto-style1">
+                                <asp:UpdatePanel ID="UpdatePanel5" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:Button ID="Buttons15" runat="server" BackColor="Gray" Text="5" OnClick="Buttons15_Click" Height="50px" Width="50px" />
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="Buttons15" EventName="Click" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+                            </td>
+                            <td class="auto-style1">
 
 
-                            <asp:UpdatePanel ID="UpdatePanel8" runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <asp:Button ID="Button17" runat="server" BackColor="Gray" Text="8" OnClick="Button17_Click" Height="50px" Width="50px" />
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="Button17" EventName="Click" />
-                                </Triggers>
-                            </asp:UpdatePanel>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style1">
+                                <asp:UpdatePanel ID="UpdatePanel6" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:Button ID="Buttons16" runat="server" BackColor="Gray" Text="6" OnClick="Buttons16_Click" Height="50px" Width="50px" />
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="Buttons16" EventName="Click" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style1">
 
 
-                            <asp:UpdatePanel ID="UpdatePanel9" runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <asp:Button ID="Button18" runat="server" BackColor="Gray" Text="9" OnClick="Button18_Click" Height="50px" Width="50px" />
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="Button18" EventName="Click" />
-                                </Triggers>
-                            </asp:UpdatePanel>
-                        </td>
-                        <td class="auto-style1">
+                                <asp:UpdatePanel ID="UpdatePanel7" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:Button ID="Buttons17" runat="server" BackColor="Gray" Text="7" OnClick="Buttons17_Click" Height="50px" Width="50px" />
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="Buttons17" EventName="Click" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+                            </td>
+                            <td class="auto-style1">
 
 
-                            <asp:UpdatePanel ID="UpdatePanel10" runat="server" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <asp:Button ID="Button19" runat="server" BackColor="Gray" Text="10" OnClick="Button19_Click" Height="50px" Width="50px" />
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="Button19" EventName="Click" />
-                                </Triggers>
-                            </asp:UpdatePanel>
-                        </td>
-                    </tr>
-                </table>
+                                <asp:UpdatePanel ID="UpdatePanel8" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:Button ID="Buttons18" runat="server" BackColor="Gray" Text="8" OnClick="Buttons18_Click" Height="50px" Width="50px" />
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="Buttons18" EventName="Click" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style1">
+
+
+                                <asp:UpdatePanel ID="UpdatePanel9" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:Button ID="Buttons19" runat="server" BackColor="Gray" Text="9" OnClick="Buttons19_Click" Height="50px" Width="50px" />
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="Buttons19" EventName="Click" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+                            </td>
+                            <td class="auto-style1">
+
+
+                                <asp:UpdatePanel ID="UpdatePanel10" runat="server" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:Button ID="Buttons20" runat="server" BackColor="Gray" Text="10" OnClick="Buttons20_Click" Height="50px" Width="50px" />
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="Buttons20" EventName="Click" />
+                                    </Triggers>
+                                </asp:UpdatePanel>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
         <div class="col-6">

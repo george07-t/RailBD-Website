@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using iTextSharp.text;
-using System.IO;
 using System.Data;
 using System.Data.SqlClient;
-using iTextSharp.text.html.simpleparser;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.html.simpleparser;
+using System.IO;
 
 namespace Rail_BD
 {
@@ -77,41 +77,26 @@ namespace Rail_BD
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            DownloadInvoiceAsPDF();
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "attachment;filename=TicketInvoice.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            invoicePanel.RenderControl(hw);
+            StringReader sr = new StringReader(sw.ToString());
+            Document pdfDoc = new Document(PageSize.A4, 10, 10, 0, 0);
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            htmlparser.Parse(sr);
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
+            Response.End();
         }
 
-        [Obsolete]
-        protected void DownloadInvoiceAsPDF()
+        public override void VerifyRenderingInServerForm(Control control)
         {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                Document document = new Document();
-                PdfWriter writer = PdfWriter.GetInstance(document, ms);
-                document.Open();
-
-                // Create a HTMLWorker to render the panel content
-                using (StringWriter sw = new StringWriter())
-                {
-                    using (HtmlTextWriter hw = new HtmlTextWriter(sw))
-                    {
-                        invoicePanel.RenderControl(hw);
-                        StringReader sr = new StringReader(sw.ToString());
-
-                        // Parse the HTML and generate the PDF document
-                        HTMLWorker htmlParser = new HTMLWorker(document);
-                        htmlParser.Parse(sr);
-                    }
-                }
-
-                document.Close();
-
-                // Set the response headers to force download the PDF file
-                Response.ContentType = "application/pdf";
-                Response.AddHeader("content-disposition", "attachment;filename=invoice.pdf");
-                Response.Cache.SetCacheability(HttpCacheability.NoCache);
-                Response.BinaryWrite(ms.ToArray());
-                Response.End();
-            }
+            /* Verifies that the control is rendered */
         }
     }
 }

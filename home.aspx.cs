@@ -22,8 +22,18 @@ namespace Rail_BD
                 String tostation = tostationtextbox.Text.Trim();
                 String dates = journeydate.Value;
                 String classes = class_id.SelectedValue;
-                Response.Redirect("trainbooking.aspx?from=" + fromstation + "&to=" + tostation + "&date=" + dates + "&classes=" + classes);
-            }
+                DateTime selectedDate = DateTime.Parse(dates);
+                DateTime currentDate = DateTime.Today;
+                if (selectedDate >= currentDate)
+                {
+                    Response.Redirect("trainbooking.aspx?from=" + fromstation + "&to=" + tostation + "&date=" + dates + "&classes=" + classes);
+
+                }
+                else
+                {
+                    Response.Write("<script>alert('Must use a current date or future date!');</script>");
+                }
+           }
             else {
                 Response.Write("<script>alert('Must Login');</script>");
                 Response.Redirect("~/login.aspx");

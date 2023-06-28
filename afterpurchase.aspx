@@ -1,25 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="afterpurchase.aspx.cs" Inherits="Rail_BD.afterpurchase" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="afterpurchase.aspx.cs" Inherits="Rail_BD.afterpurchase" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title></title>
-<script src="jsfiles/html2canvas.min.js"></script>
-<script src="jsfiles/pdfmake.min.js"></script>
-<script type="text/javascript">
-    function Export() {
-        html2canvas(document.getElementById('invoicePanel'), {
-            onrendered: function (canvas) {
-                var data = canvas.toDataURL();
-                var docDefinition = {
-                    content: [{
-                        image: data,
-                        width: 500
-                    }]
-                };
-                pdfMake.createPdf(docDefinition).download("TicketInvoice.pdf");
-            }
-        });
-    }
-</script>
     <style>
         .invoice-panel {
             background-color: #FFCC80; /* Light Orange */
@@ -173,10 +155,10 @@
             </div>
         </asp:Panel>
 
+
     </div>
     <div style="display: flex; justify-content: center; margin: 0px 10px 10px 10px;">
         <asp:Button ID="Button1" runat="server" Text="Download" CssClass="btn btn-primary" BackColor="#55B155" Width="200px" OnClick="Button1_Click" />
-       <input type="button" id="btnExport" value="Export" onclick="Export()" class="auto-style5" />
     </div>
     <footer>
         <div class="copy-right">
