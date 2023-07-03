@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iTextSharp.text;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -42,16 +43,23 @@ namespace Rail_BD
 
         protected void addtrainshowid_Click(object sender, EventArgs e)
         {
-           adminhello.Visible = false;
-            trainnameid.Visible = true;
-            sourceid.Visible = true;
-            destinationid.Visible = true;
-            timeid.Visible = true;
-            addtrainbuttonid.Visible = true;
-            lable1.Visible = true;
-            lable2.Visible = true;
-            lable3.Visible = true;
-            Label0.Visible = true;
+            if (adddatashow.Visible == true) { adddatashow.Visible = false;
+                addtrainshowid.BackColor = System.Drawing.Color.FromArgb(0, 103, 71);
+            }
+            else if(adddatashow.Visible == false) { 
+                adddatashow.Visible = true;
+                addtrainshowid.BackColor = System.Drawing.Color.Red;
+                trainnameid.Visible = true;
+                sourceid.Visible = true;
+                destinationid.Visible = true;
+                timeid.Visible = true;
+                addtrainbuttonid.Visible = true;
+                lable1.Visible = true;
+                lable2.Visible = true;
+                lable3.Visible = true;
+                Label0.Visible = true;
+            }
+
 
         }
 
@@ -110,7 +118,17 @@ namespace Rail_BD
 
         protected void showticketid_Click(object sender, EventArgs e)
         {
-            ticketshow.Visible = true;
+            if (ticketshow.Visible == true)
+            {
+                ticketshow.Visible = false;
+                showticketid.BackColor = System.Drawing.Color.FromArgb(0, 103, 71);
+            }
+            else if (ticketshow.Visible == false)
+            {
+                ticketshow.Visible = true;
+                showticketid.BackColor = System.Drawing.Color.Red;
+            }
+          
             try { 
             SqlConnection con2 = new SqlConnection(strcon);
             con2.Open();
@@ -129,7 +147,17 @@ namespace Rail_BD
 
         protected void showtrainid_Click(object sender, EventArgs e)
         {
-            trainshow.Visible = true;
+            if (trainshow.Visible == true)
+            {
+                trainshow.Visible = false;
+                showtrainid.BackColor = System.Drawing.Color.FromArgb(0, 103, 71);
+            }
+            else if (ticketshow.Visible == false)
+            {
+                trainshow.Visible = true;
+                showtrainid.BackColor = System.Drawing.Color.Red;
+            }
+            
             try
             {
                 SqlConnection con1 = new SqlConnection(strcon);

@@ -92,6 +92,7 @@ namespace Rail_BD
             pdfDoc.Close();
             Response.Write(pdfDoc);
             Response.End();
+            Response.Redirect("~/home.aspx");
         }
 
         public override void VerifyRenderingInServerForm(Control control)

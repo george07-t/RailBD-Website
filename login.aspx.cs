@@ -45,7 +45,45 @@ namespace Rail_BD
                     // Set session variable indicating user is logged in
                     Session["LoggedIn"] = true;
                     Session["username"] =username.Text.Trim();
-                   
+                    using (SqlConnection connection = new SqlConnection(strcon))
+                    {
+                        // Assuming you have a SqlCommand object to execute the query
+                        SqlCommand command = new SqlCommand("SELECT Name,Email FROM signinup WHERE Username = @Username", connection);
+
+                        // Assuming you have retrieved the username from somewhere (e.g., a TextBox control)
+                        string usernames = username.Text.Trim();
+
+                        // Set the parameter value
+                        command.Parameters.AddWithValue("@Username", usernames);
+
+                        try
+                        { 
+                            connection.Open();
+
+                            SqlDataReader reader = command.ExecuteReader();
+                            if (reader.HasRows)
+                            {
+                                reader.Read();
+
+                                string name = reader["Name"].ToString();
+                                string email = reader["Email"].ToString();
+
+                                Session["Name"] = name;
+                                Session["Email"] = email; // Store the email in a session variable
+
+                                reader.Close();
+                            }
+                            else
+                            {
+                                // User not found, handle the case accordingly
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+                        }
+                    }
+
                     // Create a cookie to remember login status
                     HttpCookie cookie = new HttpCookie("LoggedIn");
                     cookie.Value = "true";

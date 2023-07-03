@@ -42,13 +42,13 @@ namespace Rail_BD
         protected global::System.Web.UI.WebControls.Button showticketid;
 
         /// <summary>
-        /// adminhello control.
+        /// adddatashow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl adminhello;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl adddatashow;
 
         /// <summary>
         /// Label0 control.

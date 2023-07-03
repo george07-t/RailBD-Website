@@ -77,7 +77,7 @@
             }
 
         .copy-right {
-            background-color: rgba(0, 103, 71, 255);
+            background-color: rgba(21,135,108,255);
             padding: 20px 0;
             color: #fff;
         }

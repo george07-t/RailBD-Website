@@ -50,15 +50,15 @@ namespace Rail_BD
                 SqlConnection con = new SqlConnection(strcon);
                 con.Open();
 
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT [username], [mobile] FROM signinup WHERE username = @username", con);
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT [name], [mobile] FROM signinup WHERE username = @username", con);
                 sda.SelectCommand.Parameters.AddWithValue("@username", usernameid);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
 
                 if (dt.Rows.Count > 0)
                 {
-                    usernameLabel.Text = dt.Rows[0]["username"].ToString();
-                    usernameDropdownLabel.Text = dt.Rows[0]["username"].ToString();
+                    usernameLabel.Text = dt.Rows[0]["name"].ToString();
+                    usernameDropdownLabel.Text = dt.Rows[0]["name"].ToString();
                     mobileDropdownLabel.Text = dt.Rows[0]["mobile"].ToString();
                 }
 

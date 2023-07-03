@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="Rail_BD.home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
+
     <style>
         .container {
             text-align: center;
@@ -12,9 +12,9 @@
         }
 
         .search-train {
-            background-color: rgba(0, 103, 71, 255);
+            background-color: rgba(21,135,108,255);
             padding: 60px 40px;
-            padding-top: 120px;
+            padding-top: 70px;
             text-align: center;
         }
 
@@ -115,7 +115,7 @@
         }
 
         .copy-right {
-            background-color: rgba(0, 103, 71, 255);
+            background-color: rgba(21,135,108,255);
             padding: 20px 0;
             color: #fff;
         }
@@ -174,6 +174,9 @@
         .btn-primary {
             background-color: rgba(0, 103, 71, 255);
         }
+        .imageslider{
+            border:2px solid white;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
@@ -181,7 +184,8 @@
         <div class="d-flex">
 
             <div class="col-6 mx-auto">
-                <h2 class="text-center">Search Train</h2>
+                <h2 class="text-center"><strong>Search Train</strong></h2>
+                <hr style="width: 300px; height: 3px; background-color: white; text-align: right;" />
 
                 <div class="text-center">
                     <form action="#" method="POST">
@@ -227,21 +231,37 @@
             </div>
 
 
-            <div class="col-6" style="background-image: url(images/train-illustration-for-train-1.jpg); background-size: cover; text-align: right;">
-                <p>
-                    Easy <span style="color: #006747; font-weight: bold;">purchase</span> of <span
-                        style="color: #006747; font-weight: bold;">tickets</span> using<br>
-                    online payment method
-     
-                </p>
-                <div class="imgcontain">
-                    <img src="images/bkash.png" class="img-fluid">
-                    <img src="images/nagad-32.png" class="img-fluid">
-                    <img src="images/rocket.svg" class="img-fluid">
-                    <img src="images/master-card.png" class="img-fluid">
-                    <img src="images/visa.png" class="img-fluid">
-                    <img src="images/nexus-debit.svg" class="img-fluid">
+            <div class="col-6" style=" background-size: cover;padding-top:40px; text-align: right;">
+                <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                 <h4 style="color:white; text-align:center;margin-right:5px;">Our Train is Our Pride</h4>
+                <div id="imageSlider" class="carousel slide imageslider" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/owners.png" class="d-block w-100" alt="Slide 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/rail2.jpg" class="d-block w-100" alt="Slide 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/rail3.jpg" class="d-block w-100" alt="Slide 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/rail4.jpg" class="d-block w-100" alt="Slide 4">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/rail5.jpg" class="d-block w-100" alt="Slide 5">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#imageSlider" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#imageSlider" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
+               </div>
             </div>
         </div>
     </section>
@@ -290,7 +310,7 @@
                 <img src="images/instruction-secion-image.png" alt="instruction-secion-image" style="margin-top: 150px;">
             </div>
             <div class="ins ins2">
-                <h1 style="color: rgba(0,103,71,255); font-weight: bold; margin-left: 5px; font-size: 30px;">Instructions to Purchase Tickets
+                <h1 style="color: rgba(21,135,108,255); font-weight: bold; margin-left: 5px; font-size: 30px;">Instructions to Purchase Tickets
                 </h1>
                 <div class="lists">
                     <ol>
@@ -380,27 +400,27 @@
                 <div class="col-sm">
                     <h3>About Us</h3>
                     <p>
-                        * The Tickets are issued by Bangladesh Railways Centrally Computerized Seat Reservation & Ticketing System
+                        * The Tickets are issued by Rail.BD Author Centrally Computerized Seat Reservation & Ticketing System
             (CCSRTS) and
             <br>
-                        Shohoz-Synesis-Vincen JV is responsible for designing, development, implementation, technical operation
+                        George Tonmoy Roy (CSE,KUET) is responsible for designing, development, implementation, technical operation
             & maintenance of the system.
                     </p>
                 </div>
                 <div class="col-sm">
                     <h3>Contact Us</h3>
                     <p>
-                        123 Main Street, Dhaka, Bangladesh<br>
-                        Phone: (123) 456-7890<br>
-                        Email: info@railway.gov.bd
+                        121 Police Line, Barishal, Bangladesh<br>
+                        Phone: +8801828113846<br>
+                        Email: roy1907114@stud.kuet.ac.bd
                     </p>
                 </div>
                 <div class="col-sm">
                     <h3>Follow Us</h3>
                     <ul class="social-media">
-                        <li><a href="#" style="text-decoration: none;">Facebook<i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" style="text-decoration: none;">Twitter<i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" style="text-decoration: none;">Instagram<i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#" style="text-decoration: none;">Facebook</a></li>
+                        <li><a href="#" style="text-decoration: none;">Twitter</a></li>
+                        <li><a href="#" style="text-decoration: none;">Instagram</a></li>
                     </ul>
                 </div>
             </div>
@@ -409,14 +429,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
-                        <p style="color: white; margin-bottom: 5px;">&copy; 2023 Bangladesh Railway. All rights reserved.</p>
+                        <p style="color: white; margin-bottom: 5px;">&copy; 2023 Rail.BD-Website. All rights reserved.</p>
                         <div class="terms">
                             <a href="https://eticket.railway.gov.bd/terms-and-conditions" target="_blank"
                                 style="color: white; margin-right: 10px; text-decoration: none;">Terms and Conditions </a>
                             <p style="color: white;">| </p>
                             <a href="https://eticket.railway.gov.bd/privacy-policy" target="_blank"
                                 style="color: white; margin-left: 10px; text-decoration: none;">Privacy Policy </a>
-                            <p style="color: white;"> | </p>
+                            <p style="color: white;">| </p>
                             <a href="adminlogin.aspx"
                                 style="color: white; margin-left: 10px; text-decoration: none;">Admin Panel </a>
                         </div>

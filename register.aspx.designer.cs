@@ -15,6 +15,15 @@ namespace Rail_BD
     {
 
         /// <summary>
+        /// nametextbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nametextbox;
+
+        /// <summary>
         /// usernametextbox control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace Rail_BD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox usernametextbox;
+
+        /// <summary>
+        /// emailtextbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox emailtextbox;
 
         /// <summary>
         /// mobiletextbox control.

@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Reflection.Emit;
 using Label = System.Web.UI.WebControls.Label;
+using System.Net.Mail;
 
 namespace Rail_BD
 {
@@ -20,7 +21,6 @@ namespace Rail_BD
         public string date, classes;
         protected void Page_Load(object sender, EventArgs e)
         {
-
 
             if (!IsPostBack)
             {
@@ -40,7 +40,7 @@ namespace Rail_BD
                     SqlConnection con = new SqlConnection(strcon);
                     con.Open();
 
-                    SqlDataAdapter sda = new SqlDataAdapter("SELECT [trainname], [source], [destination], [time] FROM traininformation WHERE source=@source AND destination=@destination ", con);
+                    SqlDataAdapter sda = new SqlDataAdapter("SELECT [trainname], [source], [destination], [time] FROM traininformation WHERE source = @source AND destination = @destination", con);
                     sda.SelectCommand.Parameters.AddWithValue("@source", fromStation);
                     sda.SelectCommand.Parameters.AddWithValue("@destination", toStation);
                     DataTable dtbl = new DataTable();
@@ -78,7 +78,8 @@ namespace Rail_BD
 
                 string dateid = Request.QueryString["date"];
                 string trainseatdateid = trainnamefor + dateid + classlabelid.Text + seatbookno;
-                string username = Session["username"].ToString();
+                string username = Session["Name"].ToString();
+                string emailid= Session["Email"].ToString();
                 int fares = 500;
                 string timesshow = timeshowid.Text;
                 string classshow = classlabelid.Text;
@@ -87,9 +88,11 @@ namespace Rail_BD
                 int ticketsNumber = random.Next(10000, 100000);
                 DateTime currentTime = DateTime.Now;
                 DateTime selectedTime = DateTime.Parse(timesshow);
-                if (selectedTime < currentTime)
+                DateTime selectedDate = DateTime.Parse(dateid);
+                DateTime currentDate = DateTime.Today;
+                if ((selectedTime < currentTime) && (selectedDate == currentDate))
                 {
-                    Response.Write("Train has already passed today!");
+                    Response.Write("<script>alert('Train has already passed today!');</script>");
                 }
                 else
                 {
@@ -97,8 +100,6 @@ namespace Rail_BD
 
                     con.Open();
 
-
-                    // Query to insert
                     SqlCommand cmd = new SqlCommand("INSERT INTO seatbooking([username],[trainseatdate],[seatno],[searstatus],[trainname],[fromto],[time],[date],[class],[fare],[ticketnumber]) VALUES(@username,@trainseatdate,@seatno,@searstatus,@trainname,@fromto,@time,@date,@class,@fare,@ticketnumber)", con);
                     cmd.Parameters.AddWithValue("@trainseatdate", trainseatdateid);
                     cmd.Parameters.AddWithValue("@username", username);
@@ -127,7 +128,8 @@ namespace Rail_BD
                         url += "&classshow=" + HttpUtility.UrlEncode(classshow);
                         url += "&fares=" + HttpUtility.UrlEncode(fares.ToString());
                         url += "&ticketsNumber=" + HttpUtility.UrlEncode(ticketsNumber.ToString());
-
+                        string totalsdetails = " Train Name: " + trainnamefor + "\n Route: " + fromtoshow + "\n Date: " + dateid + "\n Time: " + timesshow + "\n Class: " + classshow + "\n SeatNo: " + seatbookno.ToString();
+                        sendemilwithticketnumber(emailid,username, ticketsNumber.ToString(),totalsdetails);
                         Response.Redirect(url);
                     }
                     else
@@ -140,6 +142,31 @@ namespace Rail_BD
             catch (Exception ex)
             {
                 Response.Write("<script>alert('Error1: " + ex.Message + "');</script>");
+            }
+        }
+
+        private void sendemilwithticketnumber(string emailsid,string usersname,string ticketnum,string totalid)
+        {
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.Credentials = new System.Net.NetworkCredential("k19roy@gmail.com", "gttmowoyzjhoqirv");
+            smtp.EnableSsl = true;
+            MailMessage msg = new MailMessage();
+            msg.Subject = "Hello " + usersname + "  Thanks for Purchasing ticket from Rail.BD";
+            msg.Body = "\n Ticket Details \n"+"Ticket Number: "+ticketnum+ "\n"+totalid+"\n Fare:500 BDT";
+            string toaddress = emailsid;
+            msg.To.Add(toaddress);
+            string fromaddress = "Rail.BD <k19roy@gmail.com>";
+            msg.From = new MailAddress(fromaddress);
+            try
+            {
+                smtp.Send(msg);
+
+            }
+            catch
+            {
+                throw;
             }
         }
 
@@ -156,6 +183,9 @@ namespace Rail_BD
                 button.BackColor = System.Drawing.Color.Green;
                 seatbookno = 1; // Set seatbookno to indicate the selected seat
                 seatslabelid.Text = "1";
+                farelabelid.Visible = true;
+                Label15.Visible = true;
+               
             }
 
             UpdatePanel1.Update(); // Update the contents inside the UpdatePanel
@@ -174,6 +204,8 @@ namespace Rail_BD
                 button.BackColor = System.Drawing.Color.Green;
                 seatbookno = 2; // Set seatbookno to indicate the selected seat
                 seatslabelid.Text = "2";
+                farelabelid.Visible = true;
+                Label15.Visible = true;
             }
 
             UpdatePanel2.Update();
@@ -192,6 +224,8 @@ namespace Rail_BD
                 button.BackColor = System.Drawing.Color.Green;
                 seatbookno = 3; // Set seatbookno to indicate the selected seat
                 seatslabelid.Text = "3";
+                farelabelid.Visible = true;
+                Label15.Visible = true;
             }
 
             UpdatePanel3.Update();
@@ -210,6 +244,8 @@ namespace Rail_BD
                 button.BackColor = System.Drawing.Color.Green;
                 seatbookno = 4; // Set seatbookno to indicate the selected seat
                 seatslabelid.Text = "4";
+                farelabelid.Visible = true;
+                Label15.Visible = true;
             }
 
             UpdatePanel4.Update();
@@ -228,6 +264,8 @@ namespace Rail_BD
                 button.BackColor = System.Drawing.Color.Green;
                 seatbookno = 5; // Set seatbookno to indicate the selected seat
                 seatslabelid.Text = "5";
+                farelabelid.Visible = true;
+                Label15.Visible = true;
             }
 
             UpdatePanel5.Update();
@@ -246,6 +284,8 @@ namespace Rail_BD
                 button.BackColor = System.Drawing.Color.Green;
                 seatbookno = 6; // Set seatbookno to indicate the selected seat
                 seatslabelid.Text = "6";
+                farelabelid.Visible = true;
+                Label15.Visible = true;
             }
 
             UpdatePanel6.Update();
@@ -264,6 +304,8 @@ namespace Rail_BD
                 button.BackColor = System.Drawing.Color.Green;
                 seatbookno = 7; // Set seatbookno to indicate the selected seat
                 seatslabelid.Text = "7";
+                farelabelid.Visible = true;
+                Label15.Visible = true;
             }
 
             UpdatePanel7.Update();
@@ -282,6 +324,8 @@ namespace Rail_BD
                 button.BackColor = System.Drawing.Color.Green;
                 seatbookno = 8; // Set seatbookno to indicate the selected seat
                 seatslabelid.Text = "8";
+                farelabelid.Visible = true;
+                Label15.Visible = true;
             }
 
             UpdatePanel8.Update();
@@ -300,6 +344,8 @@ namespace Rail_BD
                 button.BackColor = System.Drawing.Color.Green;
                 seatbookno = 9; // Set seatbookno to indicate the selected seat
                 seatslabelid.Text = "9";
+                farelabelid.Visible = true;
+                Label15.Visible = true;
             }
 
             UpdatePanel9.Update();
@@ -318,6 +364,8 @@ namespace Rail_BD
                 button.BackColor = System.Drawing.Color.Green;
                 seatbookno = 10; // Set seatbookno to indicate the selected seat
                 seatslabelid.Text = "10";
+                farelabelid.Visible = true;
+                Label15.Visible = true;
             }
 
             UpdatePanel10.Update();

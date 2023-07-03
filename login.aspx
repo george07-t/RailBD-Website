@@ -97,10 +97,10 @@
                 }
 
         .btn-primary {
-            background-color: rgba(0, 103, 71, 255);
+            background-color: rgba(21,135,108,255);
         }
         .custom-button {
-    background-color: rgba(0, 103, 71, 255);
+    background-color:rgba(21,135,108,255);
 }
 
     </style>
@@ -111,7 +111,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <h1 class="text-center" style="color: rgba(0, 103, 71, 255); font-size: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Login</h1>
+                    <h1 class="text-center" style="color: rgba(21,135,108,255); font-size: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Login</h1>
                     <form method="post">
                         <div class="from-group text_field">
                             <asp:TextBox ID="username" CssClass="form-control" runat="server" Required="true"></asp:TextBox>

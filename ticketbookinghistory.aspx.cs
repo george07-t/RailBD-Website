@@ -25,7 +25,7 @@ namespace Rail_BD
                 invoicePanel.Visible = false;
                 try
                 {
-                    string usernameid = Session["username"].ToString();
+                    string usernameid = Session["name"].ToString();
                     SqlConnection con1 = new SqlConnection(strcon);
                     con1.Open();
 
@@ -59,7 +59,7 @@ namespace Rail_BD
             {
               
                 invoicePanel.Visible = true;
-                usernameLabel.Text= Session["username"].ToString();
+                usernameLabel.Text= Session["name"].ToString();
                 fareLabel.Text = "500 BDT";
                 int rowIndex = Convert.ToInt32(e.CommandArgument);
                 GridViewRow row = tickethistory.Rows[rowIndex];

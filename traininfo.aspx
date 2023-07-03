@@ -17,7 +17,7 @@
             }
 
         .copy-right {
-            background-color: rgba(0, 103, 71, 255);
+            background-color: rgba(21,135,108,255);
             padding: 20px 0;
             color: #fff;
         }
@@ -74,7 +74,7 @@
         }
 
         .custom-button {
-            background-color: rgba(0, 103, 71, 255);
+            background-color: rgba(21,135,108,255);
         }
 
         .label {
@@ -105,7 +105,7 @@
             </div>
             <div style="text-align: center; width: 50%; background-color: beige; margin-right: 15px; margin-left: 5px;">
                 <div id="notrain" runat="server">
-                    <img src="images\train-information-illustration.svg">
+                    <img src="images\3236277.png" height="300" width="300">
                     <br>
                     <p>
                         Please select your preferred train to see the

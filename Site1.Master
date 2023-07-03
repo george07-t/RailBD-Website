@@ -7,7 +7,7 @@
     <title>Rail-BD</title>
     <!-- Bootstrap CSS -->
     <link href="bootstrap/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- Include Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -19,11 +19,11 @@
     <style>
         .nav-link:hover {
             text-decoration: underline;
-            text-decoration-color: green;
+            text-decoration-color: rgba(21,135,108,255);
         }
 
         .nav-link {
-            font-size: 20px;
+            font-size: 24px;
         }
 
         .navbar {
@@ -36,56 +36,66 @@
 <body>
 
     <form id="form1" runat="server">
-    <nav id="navbarshowid" class="navbar navbar-expand-lg navbar-light bg-white" runat="server">
-        <a class="navbar-brand" href="home.aspx">
-            <img src="images/Railway-Logo.png" alt="Logo" height="50">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link mr-4" href="home.aspx" id="homelinkid" runat="server">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mr-4" href="login.aspx" id="loginLink" runat="server">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mr-4" href="Verifyticket.aspx" id="verifticketlink" runat="server">Verify Tickets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mr-4" href="register.aspx" id="registerlink" runat="server">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mr-4" href="traininfo.aspx">Train Information</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mr-4" href="contactus.aspx">Contact Us</a>
-                </li>
-                <li class="nav-item dropdown" id="dropdownid" runat="server">
-                    <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="userProfileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        
-                        <asp:Label ID="usernameLabel" runat="server" CssClass="ml-2 mr-2"></asp:Label>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userProfileDropdown">
-                        <div class="dropdown-item">
-                            <i class="fas fa-user mr-2"></i><%-- Add the desired icon here --%>
-                            <asp:Label ID="usernameDropdownLabel" runat="server"></asp:Label>
-                            <br />
-                            <i class="fas fa-mobile-alt mr-2"></i>
-                            <asp:Label ID="mobileDropdownLabel" runat="server"></asp:Label>
+        <nav id="navbarshowid" class="navbar navbar-expand-lg navbar-light bg-white" runat="server">
+            <a class="navbar-brand" href="home.aspx">
+<div style="display: flex; align-items: center;">
+  <img src="images/logps(1).png" alt="Logo" height="60" width="100" style="margin-right: 10px;">
+  <div>
+    <h5 style="color:red;"><strong>Bangladesh</strong></h5>
+    <h6 style="color:forestgreen;"><strong>Railway</strong></h6>
+  </div>
+</div>
+
+
+
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link mr-4" href="home.aspx" id="homelinkid" runat="server">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-4" href="login.aspx" id="loginLink" runat="server">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-4" href="Verifyticket.aspx" id="verifticketlink" runat="server">Verify Tickets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-4" href="register.aspx" id="registerlink" runat="server">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-4" href="traininfo.aspx">Train Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-4" href="contactus.aspx">Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown" id="dropdownid" runat="server">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="userProfileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                            <asp:Label ID="usernameLabel" runat="server" CssClass="ml-2 mr-2"></asp:Label>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userProfileDropdown">
+                            <div class="dropdown-item">
+                                <i class="fas fa-user mr-2"></i><%-- Add the desired icon here --%>
+                                <asp:Label ID="usernameDropdownLabel" runat="server"></asp:Label>
+                                <br />
+                                <br />
+                                <i class="fas fa-mobile-alt mr-2"></i>
+                                <asp:Label ID="mobileDropdownLabel" runat="server"></asp:Label>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="ticketbookinghistory.aspx"><i class="fas fa-ticket-alt mr-2"></i>Ticket History</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="login.aspx?signout=true" id="signoutLink" runat="server"><i class="fas fa-sign-out-alt mr-2"></i>Sign Out</a>
                         </div>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="ticketbookinghistory.aspx"> <i class="fas fa-ticket-alt mr-2"></i>Ticket History</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.aspx?signout=true" id="signoutLink" runat="server"> <i class="fas fa-sign-out-alt mr-2"></i>Sign Out</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
         <div>
             <asp:ContentPlaceHolder ID="body" runat="server">

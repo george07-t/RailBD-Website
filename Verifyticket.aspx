@@ -17,7 +17,7 @@
             }
 
         .copy-right {
-            background-color: rgba(0, 103, 71, 255);
+            background-color: rgba(21,135,108,255);
             padding: 20px 0;
             color: #fff;
         }
@@ -74,7 +74,7 @@
         }
 
         .custom-button {
-            background-color: rgba(0, 103, 71, 255);
+            background-color:rgba(21,135,108,255);
         }
 
         .label {
@@ -83,8 +83,8 @@
             color: #333333;
         }
         .panelview{
-            padding:20px;
-            margin-bottom:10px;
+            padding-top:20px;
+            margin-bottom:20px;
         }
     </style>
 </asp:Content>
@@ -108,8 +108,10 @@
 
             </div>
             <div style="text-align: center; width: 50%; background-color: beige; margin-right: 15px; margin-left: 5px;">
-                <div id="notrain" runat="server">
-                    <img src="images\detail.png">
+                <div id="notrain" runat="server" style="text-align:center;">
+                    <br />
+                    <br />
+                    <img src="images\detail.png" height="150" width="150">
                     <br>
                     <p>
                         Please enter your ticket number for geting the

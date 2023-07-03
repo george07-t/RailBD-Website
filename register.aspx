@@ -1,14 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="Rail_BD.register" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Register|Rail.BD</title>
-    <style>
-        main {
-            flex: 1;
-        }
 
+    <style>
         .btn-primary {
-            background-color: rgba(0, 103, 71, 255);
+            background-color: rgba(21,135,108,255);
         }
 
         .nidverify {
@@ -34,6 +30,7 @@
 
         .reg {
             text-align: center;
+            margin-bottom: 20px;
         }
 
         .center {
@@ -99,8 +96,8 @@
         }
 
         .copy-right {
-            background-color: rgba(0, 103, 71, 255);
-            padding: 20px 0;
+            background-color: rgba(21,135,108,255);
+            padding: 20px 0px 20px 0px;
             color: #fff;
         }
 
@@ -112,63 +109,71 @@
 
         .container {
             text-align: center;
+            width: 100%;
         }
 
         .terms {
             display: flex;
             justify-content: center;
         }
-        .custom-button {
-    background-color: rgba(0, 103, 71, 255);
-}
 
+        .custom-button {
+            background-color: rgba(21,135,108,255);
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
-        <section class="nidverify">
-            <h1>Registration</h1>
-            <hr style="margin-left: 20px; margin-right: 20px;">
-            <img src="images/verify-nid-illustration.svg" alt="nid verify" style="width: 200px; height: 200px;">
-            <h2 style="color: #a6a6a6; text-align: center;">Please Verify Your Signup</h2>
-            <p>
-                Enter the information below to verify and register
+    <section class="nidverify">
+        <h1>Registration</h1>
+        <hr style="margin-left: 20px; margin-right: 20px;">
+        <img src="images/verify-nid-illustration.svg" alt="nid verify" style="width: 200px; height: 200px;">
+        <h2 style="color: #a6a6a6; text-align: center;">Please Verify Your Signup</h2>
+        <p>
+            Enter the information below to verify and register
                 <hr style="width: 423px" />
-            </p>
-        </section>
-        <section class="reg">
-            <div class="center">
-                <form method="post">
+        </p>
+    </section>
+    <section class="reg">
+        <div class="center">
+            <form method="post">
+                <div class="text_field">
+                    <asp:TextBox ID="nametextbox" CssClass="form-control" runat="server" Required="true"></asp:TextBox>
+                    <span></span>
+                    <label>Enter a Name</label>
+                </div>
+                <div class="text_field">
+                    <asp:TextBox ID="usernametextbox" CssClass="form-control" runat="server" Required="true"></asp:TextBox>
+                    <span></span>
+                    <label>Enter a Username</label>
+                </div>
+                <div class="text_field">
+                    <asp:TextBox ID="emailtextbox" CssClass="form-control" runat="server" Required="true"></asp:TextBox>
+                    <span></span>
+                    <label>Enter a valid Email</label>
+                </div>
+                <div class="text_field">
+                    <asp:TextBox ID="mobiletextbox" CssClass="form-control" runat="server" Required="true"></asp:TextBox>
+                    <span></span>
+                    <label>Enter your mobile number </label>
+                </div>
 
-                  <div class="text_field">
-                        <asp:TextBox ID="usernametextbox" CssClass="form-control" runat="server" Required="true"></asp:TextBox>
-                        <span></span>
-                        <label>Enter a Username</label>
-                    </div>
-                    <div class="text_field">
-                        <asp:TextBox ID="mobiletextbox" CssClass="form-control" runat="server" Required="true"></asp:TextBox>
-                        <span></span>
-                        <label>Enter your mobile number </label>
-                    </div>
+                <div class="text_field">
+                    <asp:TextBox ID="passwordtextbox" TextMode="Password" CssClass="form-control" runat="server" Required="true"></asp:TextBox>
+                    <span></span>
+                    <label>Password</label>
+                </div>
 
-                    <div class="text_field">
-                       <asp:TextBox ID="passwordtextbox" TextMode="Password" CssClass="form-control" runat="server" Required="true"></asp:TextBox>
-                        <span></span>
-                        <label>Password</label>
-                    </div>
-                    <asp:Button CssClass="m-4 btn btn-block btn-info text-white mx-auto custom-button" ID="signup" runat="server" Text="SignUp" Width="224px" OnClick="signup_Click" />
-                    <div class="signup">
+                <asp:Button CssClass="m-4 btn btn-block btn-info text-white mx-auto custom-button" ID="signup" runat="server" Text="SignUp" Width="224px" OnClick="signup_Click" />
+                <div class="signup">
 
-                        <br />
-                        <a href="login.aspx">Already Registered?</a>
+                    <a href="login.aspx">Already Registered?</a>
 
-                    </div>
-                </form>
-            </div>
-
-
-        </section>
-        <footer>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer>
         <div class="copy-right">
             <div class="container">
                 <div class="row">
