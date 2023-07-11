@@ -110,9 +110,10 @@
         <h1>User Ticket Booing History</h1>
         <hr style="margin-left: 20px; margin-right: 20px;">
     </section>
-    <div style="background-color: aqua;margin-left:40px;margin-right:20px;">
-        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-        <asp:GridView ID="tickethistory" CssClass="table" runat="server" AutoGenerateColumns="False" OnRowCommand="tickethistory_RowCommand" CellPadding="3" GridLines="None" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellSpacing="1">
+    <div style="margin-left:40px;margin-right:20px;">
+        <asp:Label ID="Label3" runat="server" ForeColor="Red" Text="Label"></asp:Label>
+        <asp:Label ID="status" runat="server" ForeColor="Red" Text="Label"></asp:Label>
+        <asp:GridView ID="tickethistory" CssClass="table" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="tickethistory_RowCancelingEdit" OnRowCommand="tickethistory_RowCommand" CellPadding="3" GridLines="None" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellSpacing="1">
             <Columns>
                 <asp:BoundField DataField="ticketnumber" HeaderText="Ticket Number" />
                 <asp:BoundField DataField="trainname" HeaderText="Train Name" />
@@ -125,6 +126,7 @@
                 <asp:TemplateField HeaderText="Options">
                     <ItemTemplate>
                         <asp:Button ID="printid" CssClass="btn btn-primary custom-button" runat="server" Text="Print" CommandName="print" CommandArgument='<%# Container.DataItemIndex %>' />
+                        <asp:Button ID="cancelid" CssClass="btn btn-primary custom-button" runat="server" Text="Cancel" CommandName="cancel" CommandArgument='<%# Container.DataItemIndex %>' />
 
                     </ItemTemplate>
                 </asp:TemplateField>

@@ -12,6 +12,7 @@ using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
+using System.Diagnostics;
 
 namespace Rail_BD
 {
@@ -22,6 +23,7 @@ namespace Rail_BD
         {
             if (!IsPostBack)
             {
+                status.Visible = false;
                 invoicePanel.Visible = false;
                 try
                 {
@@ -94,7 +96,87 @@ namespace Rail_BD
                 Response.End();
 
             }
+            else if(e.CommandName== "cancel")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = tickethistory.Rows[rowIndex];
+                string ticketnumbers = row.Cells[0].Text;
+                string date = row.Cells[3].Text;
+                string time = row.Cells[4].Text;
+                DateTime selectedDates = DateTime.Parse(date);
+                DateTime currentDates = DateTime.Today;
+                DateTime nextDate = currentDates.AddDays(1);
+                if (selectedDates < currentDates)
+                {
+                    status.Visible = true;
+                    status.Text = "Ticket's train passed away"; 
+
+                    Response.Write("<script>alert('Train of the ticket is passed away');</script>");
+                }
+                else if (selectedDates == nextDate)
+                {
+                    status.Visible = true;
+                    status.Text = "Ticket can not be cancel in previous date";
+
+                    Response.Write("<script>alert('Ticket can not be cancel in previous date');</script>");
+                }
+                else
+                {
+                    status.Visible= false;
+
+                    SqlConnection con = new SqlConnection(strcon);
+                    con.Open();
+
+                    // Query to insert
+                    SqlCommand cmd = new SqlCommand("DELETE FROM seatbooking WHERE ticketnumber=@ticketnumber", con);
+
+                    cmd.Parameters.AddWithValue("@ticketnumber", ticketnumbers);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0) 
+                    {
+                    Response.Write("<script>alert('Your Ticket is Canceled');</script>");
+                  
+
+                    }
+                    else
+                    {
+
+                        Response.Write("<script>alert('Sorry Can't Cancel Ticket');</script>");
+
+                    }
+                }
+            }
         }
+        protected void tickethistory_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            tickethistory.EditIndex = -1;
+            // Rebind the data to refresh the GridView
+            BindTicketHistory();
+        }
+        private void BindTicketHistory()
+        {
+            // Fetch the ticket history data from the data source
+            DataTable ticketHistoryData = GetTicketHistoryData();
+
+            // Set the ticket history data as the data source for the GridView
+            tickethistory.DataSource = ticketHistoryData;
+            tickethistory.DataBind();
+        }
+        public DataTable GetTicketHistoryData()
+        {
+            string usernameid = Session["name"].ToString();
+            using (SqlConnection con1 = new SqlConnection(strcon))
+            {
+                con1.Open();
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT [ticketnumber],[trainname],[fromto],[date],[time],[class],[seatno],[fare] FROM seatbooking WHERE username=@username", con1);
+                sda.SelectCommand.Parameters.AddWithValue("@username", usernameid);
+                DataTable dtbl = new DataTable();
+                sda.Fill(dtbl);
+                return dtbl;
+            }
+        }
+
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Verifies that the control is rendered */
